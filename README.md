@@ -18,5 +18,6 @@ AjaxFilter get the value of all inputs that have 'add-filter' or other clases me
     ajax_config.complete = <your compelete function>
     ajax_config.success = <your success function>
   });
+  ```
 
 
