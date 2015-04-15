@@ -1,5 +1,6 @@
 # JQuery-filter-ajax
 A JQuery pluguin help to get all data of various inputs and send data trought an ajax function.
+Look ease how it works: https://jsfiddle.net/pabliiitoo/sb2j3uLx/
 
 ## How it works
 AjaxFilter get the value of all inputs that have 'add-filter' or other clases mentioned and send an Ajax petition with this data.
