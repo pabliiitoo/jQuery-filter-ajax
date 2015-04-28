@@ -1,4 +1,4 @@
-# JQuery-filter-ajax
+# jQuery Inputs Ajax
 A JQuery pluguin help to get all data of various inputs and send data trought an ajax function.
 Look ease how it works: https://jsfiddle.net/pabliiitoo/sb2j3uLx/
 
