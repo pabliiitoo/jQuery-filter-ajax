@@ -27,4 +27,6 @@ AjaxFilter get the value of all inputs that have 'add-filter' or other clases me
   });
   ```
 
+## What it does
+
 
