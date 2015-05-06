@@ -1,6 +1,9 @@
 # jQuery Inputs Ajax
 A JQuery pluguin help to get all data of various inputs and send data trought an ajax function.
-Look ease how it works: https://jsfiddle.net/pabliiitoo/sb2j3uLx/
+Look ease how it works: 
+https://jsfiddle.net/pabliiitoo/sb2j3uLx/
+<iframe width="100%" height="300" src="//jsfiddle.net/pabliiitoo/sb2j3uLx/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
 In this example you can view the generation of the url for better undestanding.
 
 ## How it works
