@@ -37,44 +37,44 @@ With this litle configuration jQuery-inputs-ajax works perfectly, but perhaps yo
 
 1. Toggle Buttons
 
-Adding class 'filter-toggle' you can use a input/button html object as toggle button, by default the toggle class is 'activate'.
-
-`<button type="button" id="GPS" class="btn btn-default add-filter filter-toggle">GPS</button>` 
-
-When query sends it will send 'url?*GPS=true*' if button is preset by user, if not preset NOTHING is sended
+  Adding class 'filter-toggle' you can use a input/button html object as toggle button, by default the toggle class is 'activate'.
+  
+  `<button type="button" id="GPS" class="btn btn-default add-filter filter-toggle">GPS</button>` 
+  
+  When query sends it will send 'url?*GPS=true*' if button is preset by user, if not preset NOTHING is sended
 
 2. Select
 
-Adding class 'filter-selector' on a select you can add it to ajax query, the select can be multiple.
-
-```
-<select id="select" class="form-control add-filter filter-selector" multiple="multiple" name="selected">
-
-    <option value="Volvo">Volvo v40</option>
-    
-    <option value="Seat">Seat Ibiza</option>
-    
-</select>
-```
-
-When query sends it will send 'url?*select=Volvo*Seat*' if two cars are selected., note that values can be splited by an astherisc
+  Adding class 'filter-selector' on a select you can add it to ajax query, the select can be multiple.
+  
+  ```
+  <select id="select" class="form-control add-filter filter-selector" multiple="multiple" name="selected">
+  
+      <option value="Volvo">Volvo v40</option>
+      
+      <option value="Seat">Seat Ibiza</option>
+      
+  </select>
+  ```
+  
+  When query sends it will send 'url?*select=Volvo*Seat*' if two cars are selected., note that values can be splited by an astherisc
 
 3. Select with buttons
 
-Adding class 'filter-group' you can group multiple inputs for only one chosee possible. 
-
-In order to grouping the inputs you must put in all the same value in **filter-key** attribute, in the example this value is "Insurance".
-Also you must put **filter-value** attribute, that will be the value of param sended.
-
-```
-<input id="insurance-0" type="button" filter-key="Insurance" filter-value="noinsurance" class="btn btn-default add-filter filter-group" value="No insurance">
-
-<input id="insurance-1" type="button" filter-key="Insurance" filter-value="thirdpartyinsurance" class="btn btn-default add-filter filter-group" value="Third party insurance">
-
-<input id="insurance-2" type="button" filter-key="Insurance" filter-value="fullycomprehensiveinsurance" class="btn btn-default add-filter filter-group" value="Fully comprehensive insurance">
-```
-
-When query sends it will send 'url?*Insurance=fullycomprehensiveinsurance*' If last clicked is the last one.
+  Adding class 'filter-group' you can group multiple inputs for only one chosee possible. 
+  
+  In order to grouping the inputs you must put in all the same value in **filter-key** attribute, in the example this value is "Insurance".
+  Also you must put **filter-value** attribute, that will be the value of param sended.
+  
+  ```
+  <input id="insurance-0" type="button" filter-key="Insurance" filter-value="noinsurance" class="btn btn-default add-filter filter-group" value="No insurance">
+  
+  <input id="insurance-1" type="button" filter-key="Insurance" filter-value="thirdpartyinsurance" class="btn btn-default add-filter filter-group" value="Third party insurance">
+  
+  <input id="insurance-2" type="button" filter-key="Insurance" filter-value="fullycomprehensiveinsurance" class="btn btn-default add-filter filter-group" value="Fully comprehensive insurance">
+  ```
+  
+  When query sends it will send 'url?*Insurance=fullycomprehensiveinsurance*' If last clicked is the last one.
 
 
 ## Filter-key and Filter-value attributes
