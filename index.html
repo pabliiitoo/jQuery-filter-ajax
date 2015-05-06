@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Jquery-inputs-ajax by pabliiitoo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Jquery-inputs-ajax</h1>
+      <h2 class="project-tagline">A JQuery pluguin help to get all data of various inputs and send data trought an ajax function.</h2>
+      <a href="https://github.com/pabliiitoo/jQuery-inputs-ajax" class="btn">View on GitHub</a>
+      <a href="https://github.com/pabliiitoo/jQuery-inputs-ajax/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/pabliiitoo/jQuery-inputs-ajax/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="jquery-inputs-ajax" class="anchor" href="#jquery-inputs-ajax" aria-hidden="true"><span class="octicon octicon-link"></span></a>jQuery Inputs Ajax</h1>
+
+<p>A JQuery pluguin help to get all data of various inputs and send data trought an ajax function.
+Look ease how it works: <a href="https://jsfiddle.net/pabliiitoo/sb2j3uLx/">https://jsfiddle.net/pabliiitoo/sb2j3uLx/</a>
+In this example you can view the generation of the url for better undestanding.</p>
+
+<h2>
+<a id="how-it-works" class="anchor" href="#how-it-works" aria-hidden="true"><span class="octicon octicon-link"></span></a>How it works</h2>
+
+<p>jQuery Inputs Ajax get the value of all inputs that have 'add-filter' class and send an Ajax petition with this data.
+For a specific porpouse of input you can look Type of inputs topic.</p>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<ol>
+<li>You must put the 'add-filter' class to your <code>&lt;input&gt;</code>'s and an id that will be the key of pair key-value params send to Ajax query, if you can't use id for that porpouse read Advanced Features &gt; Filter-key, Filter-value.
+
+<ul>
+<li>
+<code>&lt;input id="someId" class="add-filter"&gt;SomeText&lt;/input&gt;</code> for all data inputs/buttons/select that you want to send to Ajax</li>
+</ul>
+</li>
+<li>
+<p>You must call the init function with your prefered parameters and after document ready event is fired, all parameters are explained later.</p>
+
+<pre><code>$(document).ready(function () {
+Filter.initFilter({
+
+ ajax_config.url = &lt;your url call&gt;
+
+ ajax_config.beforeSend = &lt;your before send function&gt;
+
+ ajax_config.complete = &lt;your compelete function&gt;
+
+ ajax_config.success = &lt;your success function&gt;
+
+});
+};
+</code></pre>
+</li>
+</ol>
+
+<p>With this litle configuration jQuery-inputs-ajax works perfectly, but perhaps you need something more :)</p>
+
+<h2>
+<a id="advanced-features" class="anchor" href="#advanced-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced features</h2>
+
+<h2>
+<a id="type-of-inputs" class="anchor" href="#type-of-inputs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Type of inputs</h2>
+
+<ol>
+<li>
+<p>Toggle Buttons</p>
+
+<p>Adding class 'filter-toggle' you can use a input/button html object as toggle button, by default the toggle class is 'activate'.</p>
+
+<p><code>&lt;button type="button" id="GPS" class="btn btn-default add-filter filter-toggle"&gt;GPS&lt;/button&gt;</code> </p>
+
+<p>When query sends it will send 'url?<em>GPS=true</em>' if button is preset by user, if not preset NOTHING is sended</p>
+</li>
+<li>
+<p>Select</p>
+
+<p>Adding class 'filter-selector' on a select you can add it to ajax query, the select can be multiple.</p>
+
+<pre><code>&lt;select id="select" class="form-control add-filter filter-selector" multiple="multiple" name="selected"&gt;
+
+    &lt;option value="Volvo"&gt;Volvo v40&lt;/option&gt;
+
+    &lt;option value="Seat"&gt;Seat Ibiza&lt;/option&gt;
+
+&lt;/select&gt;
+</code></pre>
+
+<p>When query sends it will send 'url?<em>select=Volvo</em>Seat*' if two cars are selected., note that values can be splited by an astherisc</p>
+</li>
+<li>
+<p>Select with buttons</p>
+
+<p>Adding class 'filter-group' you can group multiple inputs for only one chosee possible. </p>
+
+<p>In order to grouping the inputs you must put in all the same value in <strong>filter-key</strong> attribute, in the example this value is "Insurance".
+Also you must put <strong>filter-value</strong> attribute, that will be the value of param sended.</p>
+
+<pre><code>&lt;input id="insurance-0" type="button" filter-key="Insurance" filter-value="noinsurance" class="btn btn-default add-filter filter-group" value="No insurance"&gt;
+
+&lt;input id="insurance-1" type="button" filter-key="Insurance" filter-value="thirdpartyinsurance" class="btn btn-default add-filter filter-group" value="Third party insurance"&gt;
+
+&lt;input id="insurance-2" type="button" filter-key="Insurance" filter-value="fullycomprehensiveinsurance" class="btn btn-default add-filter filter-group" value="Fully comprehensive insurance"&gt;
+</code></pre>
+
+<p>When query sends it will send 'url?<em>Insurance=fullycomprehensiveinsurance</em>' If last clicked is the last one.</p>
+</li>
+</ol>
+
+<h2>
+<a id="filter-key-and-filter-value-attributes" class="anchor" href="#filter-key-and-filter-value-attributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filter-key and Filter-value attributes</h2>
+
+<p><strong>filter-key</strong> is created for two main porpouses. </p>
+
+<p>One is for <strong>substitute id attribute</strong> when it is needed for another porpouse. If we have an input with id and filter-key attribute the plugin get filter-key value as key for sended parameters.</p>
+
+<p>Second porpouse is for group a set of inputs, this is shown previosly on Select with buttons paragraph</p>
+
+<p><strong>filter-value</strong> has a similar porpouse, by default jQuery Inputs Ajax get $(input).val() as value for sending as paramater value, but if you need another value you can use filter-value for substitute it.</p>
+
+<h2>
+<a id="query-fire" class="anchor" href="#query-fire" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query fire</h2>
+
+<p>jQuery Inputs Ajax create diferent listeners based on input types, the main idea is to send a query <strong>only when filter is modified</strong>.</p>
+
+<p>When jQuery Inputs Ajax detects a modification it will start a countdown of 1,5 sec if no other change is detected the query will be fired but if another change is detected the countdown will be restarted.</p>
+
+<p>If you want fire the Ajax query immediately use <code>Filter.fireFilter</code> and it will get current params and execute the Ajax query.</p>
+
+<p>If you want to send the last Ajax query use <code>Filter.fireLastFilter</code> and it will send another time the last sended Ajax query.</p>
+
+<h2>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h2>
+
+<pre><code>Filter.initFilter({
+ ajax_config: {
+  url: &lt;stirng&gt; //The url where the Ajax query is sended
+  beforeSend: &lt;function&gt; //Function that overrides beforeSend Ajax
+  complete: &lt;function&gt; //Function that overrides complete Ajax
+  success: &lt;function&gt; //Function that overrides success Ajax
+ },
+ custom: {
+  timeToFire: &lt;miliseconds&gt; //Time in miliseconds for wait between last change and Ajax fired
+ }
+ });
+
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/pabliiitoo/jQuery-inputs-ajax">Jquery-inputs-ajax</a> is maintained by <a href="https://github.com/pabliiitoo">pabliiitoo</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
